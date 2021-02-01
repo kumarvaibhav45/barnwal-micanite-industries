@@ -1,65 +1,70 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import { useState, useEffect, useRef } from 'react'
+import About from '../components/about'
+import Banner from '../components/home'
+import Layout from '../components/layout'
+import Products from '../components/products'
+import Contact from '../components/contact'
 
 export default function Home() {
+  const [visibleSection, setVisibleSection] = useState('')
+  const [scrolled, setScrolled] = useState(false)
+
+  const homeRef = useRef(null)
+  const aboutRef = useRef(null)
+  const productsRef = useRef(null)
+  const contactRef = useRef(null)
+
+  const sectionRefs = [
+    { section: 'home', ref: homeRef },
+    { section: 'about', ref: aboutRef },
+    { section: 'products', ref: productsRef },
+    { section: 'contact', ref: contactRef },
+  ]
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY
+      if (scrollPosition > 100) {
+        setScrolled(true)
+      } else {
+        setScrolled(false)
+      }
+    }
+
+    let options = {
+      root: null,
+      threshold: 0.9,
+    }
+
+    const callback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setVisibleSection(entry.target.id)
+        }
+      })
+    }
+
+    const observer = new IntersectionObserver(callback, options)
+    sectionRefs.forEach(
+      ({ ref }) => ref.current && observer.observe(ref.current)
+    )
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      sectionRefs.forEach(
+        ({ ref }) => ref.current && observer.unobserve(ref.current)
+      )
+    }
+  }, [homeRef, aboutRef, productsRef, contactRef])
+  
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
+    <Layout visibleSection={visibleSection} scrolled={scrolled}>
+      <Banner ref={homeRef} id={sectionRefs[0].section} />
+      <About ref={aboutRef} id={sectionRefs[1].section} />
+      <Products ref={productsRef} id={sectionRefs[2].section} />
+      <Contact ref={contactRef} id={sectionRefs[3].section} />
+    </Layout>
   )
 }

@@ -1,0 +1,57 @@
+.container {
+  width: 66%;
+}
+
+.icon::before {
+  content: '';
+  display: block;
+  width: 16px;
+  height: 2px;
+  background-color: #fff;
+}
+
+.icon::after {
+  content: '';
+  display: block;
+  height: 16px;
+  width: 2px;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 300ms ease;
+}
+
+.iconClose::after {
+  opacity: 0;
+}
+
+.button::before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background-color: #fddf78;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transform: translateY(-100%);
+  transition: width 300ms ease;
+}
+
+.buttonClose::before {
+  width: 100%;
+}
+
+.animate {
+  height: 0;
+  visibility: hidden;
+  transition: all 2s linear forward;
+}
+
+.open {
+  height: auto;
+  opacity: 1;
+  visibility: visible;
+}
