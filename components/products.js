@@ -59,10 +59,11 @@ const Products = forwardRef(({ id }, ref) => {
         <Product
           id='flexible-mica-sheet'
           name='Flexible mica sheet'
-          img='/mica-sheet-3.jpeg'
+          img='/mica-sheet.jpg'
         >
           <div>
             <p className='text-sm tracking-widest'>
+              This is a silicone bonded Mica laminate, made of varnish glass cloth, multiple layers of hand laid muscovite mica splittings and another layer of silicone varnished glass cloth. This material exhibits excellent flexibility and formability at room Temperatures.
               Mica sheets are the ideal alternative for asbestos insulations.
               They offer good resistance to high temperatures & chemicals, low
               heat conductivity, high dielectric strength, good high-voltage
@@ -104,7 +105,7 @@ const Products = forwardRef(({ id }, ref) => {
             </section>
           </div>
         </Product>
-        <Product id='mica-tape' name='Mica tape' img='/mica-tape-3.jpeg'>
+        <Product id='mica-tape' name='Mica tape' img='/mica-tape.jpeg'>
           <div>
             <p className='text-sm tracking-widest'>
               Mica Tape for fire-resistant cable is insulation material made of
@@ -141,11 +142,11 @@ const Products = forwardRef(({ id }, ref) => {
           </div>
         </Product>
       </div>
-      <div className='mx-auto mt-20 text-3xl font-medium tracking-wider capitalize flex flex-col justify-center items-center w-4/5 lg:w-full lg:text-5xl lg:flex-row'>
+      <div className='mx-auto mt-20 text-3xl font-medium tracking-wider capitalize flex flex-col justify-center items-center w-4/5 lg:w-full lg:text-4xl xl:text-5xl lg:flex-row'>
         <p className='text-center lg:text-left'>
           For detailed products related inquery:
         </p>
-        <Link href='#contact'>
+        <Link href='/#contact'>
           <a className='mt-4 border-2 border-s-darkblue text-xl px-5 py-3 uppercase hover:text-white hover:bg-s-blue hover:border-s-blue transition-colors duration-200 lg:ml-10'>
             Contact Us
           </a>

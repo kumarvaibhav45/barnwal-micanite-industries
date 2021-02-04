@@ -12,7 +12,7 @@ export default function Layout({ children, scrolled, visibleSection }) {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Header scrolled={scrolled} visibleSection={visibleSection} />
-      <main className={scrolled ? 'lg:mt-32' : ''}>{children}</main>
+      <main>{children}</main>
       <Footer visibleSection={visibleSection} />
     </>
   )

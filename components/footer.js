@@ -23,7 +23,7 @@ const ContactSection = ({ heading, children }) => (
 export default function Footer({ visibleSection }) {
   return (
     <footer>
-      <div className='flex flex-col justify-center items-center text-center py-12 bg-s-darkblue text-white lg:py-24 lg:text-left'>
+      <div className='px-4 flex flex-col justify-center items-center text-center py-12 bg-s-darkblue text-white lg:py-24 lg:text-left'>
         <div className='flex flex-col justify-between space-y-12 lg:flex-row lg:space-y-0 lg:space-x-48'>
           <div>
             <Heading text='About Us' />

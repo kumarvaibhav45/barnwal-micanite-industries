@@ -7,7 +7,7 @@ import styles from '../styles/header.module.css'
 const menuItem = [
   { id: '1', name: 'home', ref_id: 'home' },
   { id: '2', name: 'about', ref_id: 'about' },
-  { id: '3', name: 'products', ref_id: 'products' },
+  // { id: '3', name: 'products', ref_id: 'products' },
   { id: '4', name: 'contact', ref_id: 'contact' },
 ]
 
@@ -71,12 +71,12 @@ export default function Header({ scrolled, visibleSection }) {
         scrolled ? '' : 'lg:py-10 lg:shadow-none'
       }`}
     >
-      <div className='flex justify-between items-center relative lg:justify-center lg:space-x-72'>
+      <div className={`flex justify-between items-center relative ${styles.mx10vw}`}>
         <div className='flex items-center'>
           <MenuIcon menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
           <div
             title='logo'
-            className='uppercase font-extrabold text-base tracking-wider hidden md:block lg:text-2xl'
+            className='uppercase font-extrabold text-base tracking-wider hidden md:block lg:text-lg xl:text-xl 2xl:text-2xl'
           >
             <Link href='/#'>
               <a className='flex items-center'>
@@ -102,7 +102,7 @@ export default function Header({ scrolled, visibleSection }) {
           </div>
         </div>
         <div
-          className={`flex flex-col items-center justify-between absolute top-14 z-40 text-s-darkblue left-0 bg-white shadow-2xl w-64 transition-all duration-300 lg:flex lg:visible lg:static lg:w-auto lg:t-0 lg:bg-transparent lg:text-white lg:shadow-none lg:flex-row lg:space-x-10 ${
+          className={`flex flex-col items-center justify-between absolute top-14 z-50 text-s-darkblue left-0 bg-white shadow-2xl w-64 transition-all duration-300 lg:flex lg:visible lg:static lg:w-auto lg:t-0 lg:bg-transparent lg:text-white lg:shadow-none lg:flex-row lg:space-x-10 ${
             menuOpen ? 'visible' : '-left-full invisible'
           } ${styles.menuList}`}
         >
@@ -129,7 +129,7 @@ export default function Header({ scrolled, visibleSection }) {
                 </a>
               </p>
             </div>
-            <div onClick={() => {setMenuOpen(!menuOpen)}}>
+            <div onClick={() => {setMenuOpen(!menuOpen)}} className='lg:hidden xl:block'>
               <Link href='/#contact'>
                 <a className='uppercase font-medium tracking-widest border-2 border-s-darkblue px-6 py-3 hover:bg-s-blue hover:border-s-blue hover:text-white transition-colors duration-200 lg:border-white'>
                   Get a quote

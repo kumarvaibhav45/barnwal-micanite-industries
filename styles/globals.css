@@ -4,6 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import 'slick-carousel/slick/slick.css';
+@import 'slick-carousel/slick/slick-theme.css';
+
 html:focus-within {
   scroll-behavior: smooth;
 }
@@ -36,4 +39,14 @@ a {
 
 .cursive {
   font-family: 'Pacifico', cursive;
+}
+
+.production {
+  height: 72vh;
+}
+
+@media (max-width: 1024px){
+  .production {
+    height: 400px;
+  }
 }

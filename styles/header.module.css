@@ -1,10 +1,33 @@
 .menuList {
-	width: auto;
 	height: auto;
 }
 
-@media(max-width: 1024px) {
+.mx10vw {
+	margin: 0 10vw;
+}
+@media(max-width: 1600px){
+	.mx10vw {
+		margin: 0 5vw;
+	}
+}
+
+@media(max-width: 1400px){
+	.mx10vw {
+		margin: 0 2vw;
+	}
+}
+
+@media(max-width: 1330px){
+	.mx10vw {
+		margin: 0 20px;
+	}
+}
+
+@media(max-width: 1023px) {
 	.menuList {
 		height: calc(100vh - 56px);
+	}
+	.mx10vw {
+		margin: 0 auto;
 	}
 }

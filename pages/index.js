@@ -4,6 +4,7 @@ import Banner from '../components/home'
 import Layout from '../components/layout'
 import Products from '../components/products'
 import Contact from '../components/contact'
+import Production from '../components/production'
 
 export default function Home() {
   const [visibleSection, setVisibleSection] = useState('')
@@ -63,7 +64,8 @@ export default function Home() {
     <Layout visibleSection={visibleSection} scrolled={scrolled}>
       <Banner ref={homeRef} id={sectionRefs[0].section} />
       <About ref={aboutRef} id={sectionRefs[1].section} />
-      <Products ref={productsRef} id={sectionRefs[2].section} />
+      {/* <Products ref={productsRef} id={sectionRefs[2].section} /> */}
+      <Production />
       <Contact ref={contactRef} id={sectionRefs[3].section} />
     </Layout>
   )

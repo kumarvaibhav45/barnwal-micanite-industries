@@ -41,7 +41,7 @@ const About = forwardRef(({ id }, ref) => {
   }
 
   return (
-    <div id={id} ref={ref} className='py-16 text-center lg:text-left'>
+    <div id={id} ref={ref} className='py-16 text-center lg:text-left lg:pt-24'>
       <SectionHeading text='About Our Company' />
       <div className='flex flex-col w-3/5 mx-auto my-10 divide-y-2 space-y-8 divide-s-darkgray text-s-darkblue lg:flex-row lg:divide-y-0 lg:divide-x-2 lg:space-y-0 lg:space-x-20 lg:mb-20'>
         <div className='tracking-wider flex flex-col space-y-8 items-center text-left lg:flex-1 lg:items-start'>

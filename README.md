@@ -1,3 +1,3 @@
 # Barnwal Micanite Industries
 
-This is sample site.
+This repo is for the official site of Barnwal Micanite Industries.
